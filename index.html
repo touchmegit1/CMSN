@@ -12,27 +12,26 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #FFCCFF; /* Màu nền hồng nhạt */
+            background-color: #FFCCFF;
             color: #fff;
             text-align: center;
-            overflow: hidden; /* Giữ overflow: hidden để tránh scrollbar khi confetti bay ra */
+            overflow: hidden;
             position: relative;
         }
 
-        /* --- CSS cho hiệu ứng Intro/Đếm Ngược --- */
         #intro-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #EEEEEE; /* Màu nền cho intro */
+            background-color: #EEEEEE;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             opacity: 1;
-            transition: opacity 1.5s ease-out; /* Hiệu ứng mờ dần của overlay */
+            transition: opacity 1.5s ease-out;
         }
 
         #intro-overlay.fade-out {
@@ -41,13 +40,13 @@
         }
 
         #countdown-display {
-            font-size: 6em; /* Kích thước lớn cho số đếm */
+            font-size: 6em;
             font-weight: bold;
-            color: #ffe082; /* Màu vàng sáng */
+            color: #ffe082;
             text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
-            transform: scale(1); /* Kích thước ban đầu */
-            opacity: 1; /* Hiển thị ban đầu */
-            animation: popOut 0.8s ease-out forwards; /* Hiệu ứng bật ra mỗi lần đếm */
+            transform: scale(1);
+            opacity: 1;
+            animation: popOut 0.8s ease-out forwards;
         }
 
         @keyframes popOut {
@@ -56,11 +55,10 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Khi đếm ngược kết thúc, chữ GO/Bắt đầu */
         #countdown-display.final-message {
-            font-size: 5em; /* Kích thước nhỏ hơn một chút cho chữ cuối */
-            color: #00bcd4; /* Màu nổi bật hơn */
-            animation: finalPulse 1s infinite alternate; /* Hiệu ứng nhấp nháy cho chữ cuối */
+            font-size: 5em;
+            color: #00bcd4;
+            animation: finalPulse 1s infinite alternate;
         }
 
         @keyframes finalPulse {
@@ -68,37 +66,33 @@
             100% { transform: scale(1.05); opacity: 0.9; }
         }
 
-        /* --- CSS cho Pháo Hoa Giấy (Confetti) --- */
         .confetti {
             position: absolute;
             width: 8px;
             height: 8px;
-            background-color: white; /* Màu mặc định cho confetti */
-            border-radius: 50%; /* Có thể thay đổi thành 0% để tạo hình vuông */
+            background-color: white;
+            border-radius: 50%;
             transform: scale(0) rotate(0deg);
             opacity: 0;
         }
 
-        /* --- Kết thúc CSS cho Pháo Hoa Giấy --- */
-
         .container {
-            background-color: rgba(0, 0, 0, 0.5); /* Nền đen trong suốt */
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 30px 40px;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            max-width: 90%; /* Tăng max-width để có thêm không gian cho 2 cột */
-            min-height: 400px; /* Thêm min-height để đảm bảo container đủ lớn */
+            max-width: 90%;
+            min-height: 400px;
             position: relative;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
             
-            /* --- Flexbox cho bố cục mới --- */
             display: flex;
-            flex-direction: row; /* Sắp xếp theo hàng ngang */
-            justify-content: space-around; /* Chia đều không gian giữa các phần tử */
-            align-items: center; /* Căn giữa theo chiều dọc */
-            gap: 30px; /* Khoảng cách giữa chữ và ảnh */
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 30px;
         }
 
         body.show-content .container {
@@ -107,84 +101,74 @@
         }
 
         .text-content {
-            flex: 1; /* Cho phép phần chữ giãn nở */
-            text-align: left; /* Căn chữ sang trái */
-            max-width: 50%; /* Giới hạn chiều rộng của phần chữ */
-            display: flex; /* Dùng flex để các đoạn p có thể xếp dọc dễ hơn */
+            flex: 1;
+            text-align: left;
+            max-width: 50%;
+            display: flex;
             flex-direction: column;
-            justify-content: center; /* Căn giữa nội dung văn bản */
+            justify-content: center;
         }
 
         h1 {
             font-size: 3.5em;
             margin-bottom: 15px;
-            color: #ffe082; /* Màu chữ tiêu đề */
+            color: #ffe082;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            line-height: 1.2; /* Tối ưu dòng cho h1 */
+            line-height: 1.2;
         }
         h2{
             font-size: 3em;
             margin-bottom: 15px;
-            color: #ffe082; /* Màu chữ tiêu đề */
+            color: #ffe082;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         p {
             font-size: 1.4em;
             line-height: 1.6;
-            margin-bottom: 15px; /* Giảm margin-bottom để các đoạn p gần nhau hơn */
-            color: #FFFFFF; /* Màu chữ nội dung */
+            margin-bottom: 15px;
+            color: #FFFFFF;
         }
 
-        /* --- CSS cho chữ xuất hiện từng dòng --- */
         .hidden-text {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1s ease-out, transform 1s ease-out;
-            margin-bottom: 0; /* Đảm bảo không có margin dưới khi ẩn */
+            margin-bottom: 0;
         }
 
         .hidden-text:first-of-type {
-            margin-top: 0; /* Bỏ margin-top cho đoạn đầu tiên */
+            margin-top: 0;
         }
 
         .hidden-text + .hidden-text {
-            margin-top: 15px; /* Khoảng cách giữa các đoạn P khi hiện */
+            margin-top: 15px;
         }
 
-        /* Không cần riêng cho last-of-type nữa vì p đã có margin-bottom mặc định */
-        /* .container p:not(.sender-signature):last-of-type {
-            margin-bottom: 25px;
-        } */
-        /* --- Kết thúc CSS cho chữ xuất hiện từng dòng --- */
-
         .birthday-image {
-            max-width: 45%; /* Giới hạn chiều rộng của ảnh */
+            max-width: 45%;
             height: auto;
             border-radius: 10px;
-            /* margin-top: 20px; */ /* Bỏ margin-top không cần thiết với flexbox */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* --- CSS cho chữ ký người gửi --- */
         .sender-signature {
             position: absolute;
             bottom: 15px;
             right: 20px;
             font-size: 0.8em;
             font-style: italic;
-            color: black; /* Màu chữ ký */
+            color: black;
             white-space: nowrap;
         }
 
-        /* Hiệu ứng bong bóng bay */
         .bubble {
             position: absolute;
             bottom: -100px;
-            background-color: rgba(255, 255, 255, 0.5); /* Màu mặc định, sẽ bị JS ghi đè */
+            background-color: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             opacity: 0.6;
             animation: bubbleUp 10s infinite ease-in forwards;
-            pointer-events: none; /* Đảm bảo không cản trở tương tác khác */
+            pointer-events: none;
         }
 
         @keyframes bubbleUp {
@@ -192,22 +176,21 @@
             100% { transform: translateY(-1000px); opacity: 0; }
         }
 
-        /* --- Responsive cho màn hình nhỏ hơn --- */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column; /* Chuyển sang bố cục cột trên màn hình nhỏ */
+                flex-direction: column;
                 padding: 20px;
                 max-width: 95%;
             }
 
             .text-content,
             .birthday-image {
-                max-width: 100%; /* Cho phép chiếm toàn bộ chiều rộng */
+                max-width: 100%;
                 margin-right: 0;
             }
 
             .birthday-image {
-                margin-top: 20px; /* Thêm lại margin-top khi là cột */
+                margin-top: 20px;
             }
 
             h1 {
@@ -246,81 +229,72 @@
         window.addEventListener('load', () => {
             const introOverlay = document.getElementById('intro-overlay');
             const countdownDisplay = document.getElementById('countdown-display');
-            // Mảng chứa các ký tự/chuỗi bạn muốn hiển thị
             const countdownMessages = ["Hôm nay", "là một ngày", "đặc biệt...", "🎂🎂🎂"];
-            let currentIndex = 0; // Bắt đầu từ phần tử đầu tiên của mảng
+            let currentIndex = 0;
 
-            // Dãy màu cho pháo hoa giấy (confettiColors)
             const confettiColors = ['#FFD700', '#FF4500', '#ADFF2F', '#00BFFF', '#EE82EE', '#FF6347', '#FF1493', '#32CD32'];
 
-            // Dãy màu cho bong bóng (bubbleColors)
             const bubbleColors = [
-                '#ADD8E6', // Light Blue
-                '#87CEEB', // Sky Blue
-                '#90EE90', // Light Green
-                '#98FB98', // Pale Green
-                '#FFD700', // Gold
-                '#FFA07A', // Light Salmon
-                '#FFB6C1', // Light Pink
-                '#FFC0CB', // Pink
-                '#EE82EE', // Violet
-                '#DDA0DD', // Plum
-                '#F0E68C', // Khaki
-                '#FFE4B5'  // Moccasin
+                '#ADD8E6',
+                '#87CEEB',
+                '#90EE90',
+                '#98FB98',
+                '#FFD700',
+                '#FFA07A',
+                '#FFB6C1',
+                '#FFC0CB',
+                '#EE82EE',
+                '#DDA0DD',
+                '#F0E68C',
+                '#FFE4B5'
             ];
 
             function updateCountdown() {
-                if (currentIndex < countdownMessages.length - 1) { // Kiểm tra để không vượt quá phần tử cuối
+                if (currentIndex < countdownMessages.length - 1) {
                     countdownDisplay.textContent = countdownMessages[currentIndex];
                     countdownDisplay.style.animation = 'none';
-                    void countdownDisplay.offsetWidth; // Trigger reflow to restart animation
+                    void countdownDisplay.offsetWidth;
                     countdownDisplay.style.animation = 'popOut 0.8s ease-out forwards';
                     currentIndex++;
                 } else {
                     clearInterval(countdownInterval);
-                    countdownDisplay.textContent = countdownMessages[countdownMessages.length - 1]; // Hiển thị tin nhắn cuối cùng
+                    countdownDisplay.textContent = countdownMessages[countdownMessages.length - 1];
                     countdownDisplay.classList.add('final-message');
                     countdownDisplay.style.animation = 'none';
-                    void countdownDisplay.offsetWidth; // Trigger reflow
+                    void countdownDisplay.offsetWidth;
                     countdownDisplay.style.animation = 'finalPulse 1s infinite alternate';
 
-                    // Kích hoạt pháo hoa giấy ngay sau khi tin nhắn cuối xuất hiện
-                    createConfetti(300); // Tăng số lượng hạt confetti lên 300 (hoặc hơn)
+                    createConfetti(300);
 
-                    setTimeout(showMainContent, 1500); // Hiển thị tin nhắn cuối trong 1.5 giây rồi chuyển trang
+                    setTimeout(showMainContent, 1500);
                 }
             }
 
-            // Hàm tạo hiệu ứng pháo hoa giấy
             function createConfetti(numConfetti) {
                 for (let i = 0; i < numConfetti; i++) {
                     const confetti = document.createElement('div');
                     confetti.classList.add('confetti');
 
-                    const startX = Math.random() * window.innerWidth; // Vị trí xuất hiện ngẫu nhiên theo chiều ngang
+                    const startX = Math.random() * window.innerWidth;
                     confetti.style.left = `${startX}px`;
-                    confetti.style.top = `${window.innerHeight}px`; // Bắt đầu từ dưới cùng
+                    confetti.style.top = `${window.innerHeight}px`;
 
-                    const size = Math.random() * 12 + 6; // Kích thước ngẫu nhiên từ 6px đến 18px
+                    const size = Math.random() * 12 + 6;
                     confetti.style.width = `${size}px`;
                     confetti.style.height = `${size}px`;
                     
-                    // Màu sắc ngẫu nhiên cho từng hạt confetti
                     confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
                     
-                    // Tạo animation độc lập cho mỗi hạt
                     const styleSheet = document.styleSheets[0];
                     const animationName = `confetti-anim-${Date.now()}-${i}`;
                     
-                    // Tọa độ đỉnh bay lên (ngẫu nhiên trong khoảng 10% đến 80% chiều cao màn hình)
                     const peakY = Math.random() * (window.innerHeight * 0.7) + (window.innerHeight * 0.1);
-                    // Tọa độ rơi xuống (ngẫu nhiên từ 0 đến toàn màn hình)
-                    const endY = window.innerHeight + 50; // Rơi hẳn ra ngoài màn hình
+                    const endY = window.innerHeight + 50;
                     const endX = Math.random() * window.innerWidth;
-                    const rotation = Math.random() * 360 * 5; // Quay ngẫu nhiên nhiều vòng
+                    const rotation = Math.random() * 360 * 5;
 
-                    const duration = Math.random() * 4 + 3; // Thời gian animation ngẫu nhiên từ 3s đến 7s
-                    const delay = Math.random() * 1; // Độ trễ ngẫu nhiên nhỏ
+                    const duration = Math.random() * 4 + 3;
+                    const delay = Math.random() * 1;
 
                     const rule = `@keyframes ${animationName} {
                         0% { transform: translate(0px, 0px) scale(0) rotate(0deg); opacity: 1; }
@@ -332,14 +306,12 @@
                     
                     introOverlay.appendChild(confetti);
 
-                    // Xóa hạt confetti sau khi animation kết thúc
                     confetti.addEventListener('animationend', () => {
                         confetti.remove();
                     });
                 }
             }
 
-            // Hàm hiển thị nội dung chính
             function showMainContent() {
                 introOverlay.classList.add('fade-out');
                 introOverlay.addEventListener('transitionend', () => {
@@ -349,9 +321,7 @@
                 }, { once: true });
             }
 
-            // Hàm hiển thị từng dòng chữ một
             function revealTextSequentially() {
-                // Chỉ chọn các đoạn văn bản trong .text-content
                 const textParagraphs = document.querySelectorAll('.text-content p.hidden-text');
                 let delay = 500;
 
@@ -364,20 +334,18 @@
             }
 
             const countdownInterval = setInterval(updateCountdown, 1000);
-            updateCountdown(); // Gọi lần đầu để hiển thị ngay
+            updateCountdown();
 
-            // Hàm tạo hiệu ứng bong bóng bay
             function createBubble() {
                 const bubble = document.createElement('div');
                 bubble.classList.add('bubble');
-                const size = Math.random() * 60 + 20; // Kích thước ngẫu nhiên từ 20px đến 80px
+                const size = Math.random() * 60 + 20;
                 bubble.style.width = `${size}px`;
                 bubble.style.height = `${size}px`;
                 bubble.style.left = `${Math.random() * 100}%`;
                 bubble.style.animationDuration = `${Math.random() * 5 + 5}s`;
                 bubble.style.animationDelay = `${Math.random() * 3}s`;
                 
-                // Gán màu ngẫu nhiên cho bong bóng
                 bubble.style.backgroundColor = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
                 
                 document.body.appendChild(bubble);
@@ -387,11 +355,9 @@
                 });
             }
 
-            // Tạo các bong bóng ban đầu
             for (let i = 0; i < 20; i++) {
                 createBubble();
             }
-            // Tiếp tục tạo bong bóng mỗi 1 giây
             setInterval(createBubble, 1000);
         });
     </script>
